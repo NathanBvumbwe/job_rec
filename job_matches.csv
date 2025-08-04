@@ -1,0 +1,11 @@
+user_id,user_name,user_email,job_id,job_title,job_category,similarity_score
+1,mphatso,mpha@gmail.com,657,ICT Specialist,IT,0.48220226
+1,mphatso,mpha@gmail.com,706,ICT Officer,IT,0.45024145
+1,mphatso,mpha@gmail.com,305,Informatics Officer,IT,0.42745742
+1,mphatso,mpha@gmail.com,148,Informatics Officer,IT,0.42745742
+1,mphatso,mpha@gmail.com,606,Programme Management Officer,Education,0.38981906
+2,mwayi,mwayi@gmail.com,361,Prequalification of Consultants for WHH Malawi,Human Resources,0.54398155
+2,mwayi,mwayi@gmail.com,88,Volunteer Liaisons – Malawi,Human Resources,0.47369578
+2,mwayi,mwayi@gmail.com,103,Request for proposalto conduct KAP study on corporal punishment in Malawi,Education,0.4558558
+2,mwayi,mwayi@gmail.com,152,Driver,Transportation,0.40079167
+2,mwayi,mwayi@gmail.com,151,Driver,Transportation,0.40079167

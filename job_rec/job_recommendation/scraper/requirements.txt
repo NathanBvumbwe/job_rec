@@ -1,0 +1,10 @@
+pandas 
+numpy 
+scikit-learn 
+spacy 
+fuzzywuzzy 
+python-Levenshtein  
+typing_extensions 
+pydantic 
+selenium 
+beautifulsoup4 

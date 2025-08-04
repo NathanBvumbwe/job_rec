@@ -1,0 +1,101 @@
+{% extends 'job_recommendation/index.html' %}
+{% load static %}
+{% block title %}Create Your Profile{% endblock %}
+{% block content %}
+<!-- Header Start -->
+<div class="container-xxl py-4 bg-dark page-header mb-5">
+    <div class="container my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Create Your Profile</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Job Seeker</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Create Profile Start -->
+<div class="container-xxl py-4">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="row g-0 about-bg rounded overflow-hidden">
+                    <div class="col-6 text-start">
+                        <img class="img-fluid w-100" src="{% static 'img/pic1.jpg' %}" alt="Profile Image 1" onerror="this.src='https://via.placeholder.com/150';">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid" src="{% static 'img/pic2.jpg' %}" style="width: 85%; margin-top: 15%;" alt="Profile Image 2" onerror="this.src='https://via.placeholder.com/150';">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid" src="{% static 'img/pic33.jpg' %}" style="width: 85%;" alt="Profile Image 3" onerror="this.src='https://via.placeholder.com/150';">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid w-100" src="{% static 'img/pic4.jpg' %}" style="height: auto;" alt="Profile Image 4" onerror="this.src='https://via.placeholder.com/150';">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="mb-4">Build Your Job Seeker Profile</h1>
+                <p class="mb-4">Complete your profile to get personalized job recommendations and connect with top employers.</p>
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>{{ field.label }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password.label_tag }}
+                        {{ form.password }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.confirm_password.label_tag }}
+                        {{ form.confirm_password }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.address.label_tag }}
+                        {{ form.address }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.academic_qualification.label_tag }}
+                        {{ form.academic_qualification }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.experience.label_tag }}
+                        {{ form.experience }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.skills.label_tag }}
+                        {{ form.skills }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.about.label_tag }}
+                        {{ form.about }}
+                    </div>
+                    <button type="submit" class="btn btn-primary py-3 px-5 mt-3">Save Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Create Profile End -->
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'job_recommendation/index.html' %}
+{% load static %}
+{% block title %}Recruiter Login{% endblock %}
+{% block content %}
+<!-- Header Start -->
+<div class="container-xxl py-4 bg-dark page-header mb-5">
+    <div class="container my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Recruiter Login</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Recruiter Login</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Recruiter Login Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h2 class="mb-0">Recruiter Login</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-3">Login</button>
+                        </form>
+                        
+                        <div class="text-center mt-3">
+                            <p>Don't have a recruiter account? <a href="{% url 'create_recruiter_profile' %}" class="text-primary">Create one here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Recruiter Login End -->
+{% endblock %} 

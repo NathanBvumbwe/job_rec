@@ -1,0 +1,135 @@
+{% extends 'job_recommendation/index.html' %}
+{% load static %}
+{% block title %}Recruiter Dashboard{% endblock %}
+{% block content %}
+<!-- Header Start -->
+<div class="container-xxl py-4 bg-dark page-header mb-5">
+    <div class="container my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Recruiter Dashboard</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Dashboard</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Recruiter Dashboard Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <!-- Welcome Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4">
+                        <h2 class="text-primary mb-3">Welcome, {{ recruiter.name }}!</h2>
+                        <p class="lead">Manage your job postings and find the perfect candidates for your company.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company Information -->
+        <div class="row mb-5">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Company Information</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-primary">Company Details</h5>
+                                <p><strong>Company:</strong> {{ recruiter.company_name }}</p>
+                                <p><strong>Industry:</strong> {{ recruiter.industry }}</p>
+                                <p><strong>Position:</strong> {{ recruiter.position }}</p>
+                                <p><strong>Contact:</strong> {{ recruiter.contact_phone }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary">Contact Information</h5>
+                                <p><strong>Email:</strong> {{ recruiter.email }}</p>
+                                <p><strong>Address:</strong> {{ recruiter.address }}</p>
+                                {% if recruiter.website %}
+                                    <p><strong>Website:</strong> <a href="{{ recruiter.website }}" target="_blank">{{ recruiter.website }}</a></p>
+                                {% endif %}
+                                {% if recruiter.linkedin %}
+                                    <p><strong>LinkedIn:</strong> <a href="{{ recruiter.linkedin }}" target="_blank">View Profile</a></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="text-primary">About Company</h5>
+                            <p>{{ recruiter.about_company }}</p>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="text-primary">Current Hiring Needs</h5>
+                            <p>{{ recruiter.hiring_needs }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card shadow-lg border-0 mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h4 class="mb-0">Quick Actions</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <a href="{% url 'post_job' %}" class="btn btn-primary w-100 mb-3">
+                            <i class="fa fa-plus me-2"></i>Post New Job
+                        </a>
+                        <a href="#" class="btn btn-outline-primary w-100 mb-3">
+                            <i class="fa fa-eye me-2"></i>View My Jobs
+                        </a>
+                        <a href="#" class="btn btn-outline-primary w-100 mb-3">
+                            <i class="fa fa-users me-2"></i>Browse Candidates
+                        </a>
+                        <a href="#" class="btn btn-outline-primary w-100">
+                            <i class="fa fa-cog me-2"></i>Edit Profile
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-info text-white">
+                        <h4 class="mb-0">Statistics</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h3 class="text-primary">0</h3>
+                            <p class="text-muted">Jobs Posted</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-success">0</h3>
+                            <p class="text-muted">Applications Received</p>
+                        </div>
+                        <div class="text-center">
+                            <h3 class="text-warning">0</h3>
+                            <p class="text-muted">Active Listings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-warning text-dark">
+                        <h3 class="mb-0">Recent Activity</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <p class="text-muted">No recent activity. Start by posting your first job!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Recruiter Dashboard End -->
+{% endblock %} 

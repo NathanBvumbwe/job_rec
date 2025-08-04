@@ -1,0 +1,182 @@
+{% extends 'job_recommendation/index.html' %}
+{% load static %}
+{% block title %}Create Recruiter Profile{% endblock %}
+{% block content %}
+<!-- Header Start -->
+<div class="container-xxl py-4 bg-dark page-header mb-5">
+    <div class="container my-5 pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">Create Recruiter Profile</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb text-uppercase">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">Create Recruiter Profile</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Create Recruiter Profile Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-header bg-primary text-white text-center">
+                        <h2 class="mb-0">Create Your Recruiter Profile</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.name.label_tag }}
+                                        {{ form.name }}
+                                        {% if form.name.errors %}
+                                            <div class="text-danger small">{{ form.name.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.email.label_tag }}
+                                        {{ form.email }}
+                                        {% if form.email.errors %}
+                                            <div class="text-danger small">{{ form.email.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.password.label_tag }}
+                                        {{ form.password }}
+                                        {% if form.password.errors %}
+                                            <div class="text-danger small">{{ form.password.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.confirm_password.label_tag }}
+                                        {{ form.confirm_password }}
+                                        {% if form.confirm_password.errors %}
+                                            <div class="text-danger small">{{ form.confirm_password.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.company_name.label_tag }}
+                                        {{ form.company_name }}
+                                        {% if form.company_name.errors %}
+                                            <div class="text-danger small">{{ form.company_name.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.industry.label_tag }}
+                                        {{ form.industry }}
+                                        {% if form.industry.errors %}
+                                            <div class="text-danger small">{{ form.industry.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.position.label_tag }}
+                                        {{ form.position }}
+                                        {% if form.position.errors %}
+                                            <div class="text-danger small">{{ form.position.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.contact_phone.label_tag }}
+                                        {{ form.contact_phone }}
+                                        {% if form.contact_phone.errors %}
+                                            <div class="text-danger small">{{ form.contact_phone.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form.address.label_tag }}
+                                {{ form.address }}
+                                {% if form.address.errors %}
+                                    <div class="text-danger small">{{ form.address.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form.hiring_needs.label_tag }}
+                                {{ form.hiring_needs }}
+                                {% if form.hiring_needs.errors %}
+                                    <div class="text-danger small">{{ form.hiring_needs.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                {{ form.about_company.label_tag }}
+                                {{ form.about_company }}
+                                {% if form.about_company.errors %}
+                                    <div class="text-danger small">{{ form.about_company.errors.0 }}</div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.website.label_tag }}
+                                        {{ form.website }}
+                                        {% if form.website.errors %}
+                                            <div class="text-danger small">{{ form.website.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        {{ form.linkedin.label_tag }}
+                                        {{ form.linkedin }}
+                                        {% if form.linkedin.errors %}
+                                            <div class="text-danger small">{{ form.linkedin.errors.0 }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-100 py-3">Create Recruiter Profile</button>
+                        </form>
+                        
+                        <div class="text-center mt-3">
+                            <p>Already have a recruiter account? <a href="{% url 'recruiter_login' %}" class="text-primary">Login here</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Create Recruiter Profile End -->
+{% endblock %} 
